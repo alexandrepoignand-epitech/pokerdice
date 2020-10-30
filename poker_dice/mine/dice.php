@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="style.css">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    </head>
     <body>
         <h2 id="heading"> We're gonna roll a dice! <br><small>And you have to guess which number the dice will roll.</small></h2>
         <form action="" method="post">
