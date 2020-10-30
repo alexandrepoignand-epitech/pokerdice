@@ -5,8 +5,9 @@ input:checked + svg {
   }
 /*:checked + .dice::before {
     color: green; 
-}.checkbox
+}
+*/
+.checkbox
 {
     display : none;
 }
-    */
