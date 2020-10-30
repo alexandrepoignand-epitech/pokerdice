@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>JavaScript in Body</h2>
+
+    <p id="demo"></p>
+    <p id="pute"></p>
+    <p id="pote"></p>
+
+    <script>
+        document.getElementById("demo").innerHTML = "My First JavaScript";
+
+        function getRandomInt(max) {
+            return Math.floor(Math.random(1) * Math.floor(max));
+        }
+        console.log(getRandomInt(5));
+
+        de = Math.floor(Math.random() * Math.floor(5));
+        switch (de) {
+            case 0:
+                document.getElementById("pote").innerHTML = ('le dé afficherais un 1');
+
+                break;
+
+            case 1:
+
+                document.getElementById("pote").innerHTML = ('le dé afficherais un 2');
+                break;
+            case 2:
+
+                document.getElementById("pote").innerHTML = ('le dé afficherais un 3');
+                break;
+            case 3:
+                document.getElementById("pote").innerHTML = ('le dé afficherais un 4');
+                break;
+            case 4:
+
+                document.getElementById("pote").innerHTML = ('le dé afficherais un 5');
+                break;
+            case 5:
+
+                document.getElementById("pote ").innerHTML = ('le dé afficherais un 6');
+                break;
+        }
+        document.getElementById("pute").innerHTML = de;
+    </script>
+ <label class="fancy-checkbox-label">
+    <input type="checkbox" name="de1" class="checkbox">
+
+    <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-dice-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M13 1H3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zM3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3H3z" />
+        <circle cx="8" cy="8" r="1.5" />
+    </svg>
+</label>
+</body>
+
+</html>

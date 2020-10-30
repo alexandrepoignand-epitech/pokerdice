@@ -1,0 +1,12 @@
+
+input:checked + svg {
+    transform: scale(0.9);
+      color: green;
+  }
+/*:checked + .dice::before {
+    color: green; 
+}.checkbox
+{
+    display : none;
+}
+    */
