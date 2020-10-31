@@ -9,14 +9,25 @@ function rollDice() {
             document.getElementById("die" + dieNumber).innerHTML = dieValue;
         }
     }
-    document.getElementById("turnsLeft").innerHTML = turnLeft;
     turnLeft--;
+    document.getElementById("turnsLeft").innerHTML = turnLeft;
 
-    /* if (turnLeft == 0) {
-         document.getElementById("roll").disabled = true;
-     }*/
+    if (turnLeft == 0) {
+        endOfTheGame();
+    }
 }
+function reset() {
+    for (let dieNumber = 1; dieNumber <= 5; dieNumber++) {
+        document.getElementById("die" + dieNumber + "Check").checked = false;
+        const dieValue = rollDie();
+        document.getElementById("die" + dieNumber).innerHTML = dieValue;
+    }
+    turnLeft = 3;
+    document.getElementById("turnsLeft").innerHTML = turnLeft;
+    document.getElementById("roll").disabled = false;
 
+
+}
 
 function rollDie() {
     return Math.floor(Math.random() * Math.floor(6) + 1);
@@ -32,10 +43,10 @@ function numberOfTurn() {
 function endOfTheGame() {
     document.getElementById("roll").disabled = true;
     document.getElementById("information").innerHTML = "The game is over";
-    
+    turnLeft = 0;
+    document.getElementById("turnsLeft").innerHTML = turnLeft;
 
-
-    }
+}
 /*
     if (turnLeft == 0) {
         document.getElementById("roll").disabled = true;
