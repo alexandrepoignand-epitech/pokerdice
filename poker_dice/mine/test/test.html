@@ -5,59 +5,43 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="test.css ">
+    <link rel="stylesheet" href="test.css">
+    <script type="text/javascript" src="test.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
+    <div id="main" class="container">
+        <label>
+            <input type="checkbox" name="de1" class="checkbox">
+            <p id="de1"></p>
 
+        </label>
+        <label>
+            <input type="checkbox" name="de1" class="checkbox">
+            <p id="de2"></p>
 
+        </label>
+        <label >
+            <input type="checkbox" name="de1" class="checkbox">
+            <p id="de3"></p>
+
+        </label>
+        <label>
+            <input type="checkbox" name="de1" class="checkbox">
+            <p id="de4"></p>
+        </label>
+        <label>
+            <input type="checkbox" name="de1" class="checkbox">
+            <p id="de5"></p>
+        </label>
+        <p id="fin"></p>
+
+        <button id="roll" onclick="rollDice()" class="btn btn-primary">Roll!</button>
+        <button id="reroll" onclick="rerollDice()" class="btn btn-primary">Re Roll!</button>
     </div>
-    <p id="demo"></p>
-    <p id="pate"></p>
-    <p id="pote"></p>
-    <form action="" method="post">
-        <button id="submit" type="submit" type="button" name="roll" class="btn btn-primary">Roll!</button>
-    <script>
-
-        function getRandomInt(max) {
-            return Math.floor(Math.random(1) * Math.floor(max));
-        }
-        console.log(getRandomInt(5));
-
-        de = Math.floor(Math.random() * Math.floor(5));
-        switch (de) {
-            case 0:
-                var de1 = document.getElementById('de1');
-                document.getElementById(de1);
-                document.getElementById("pote").innerHTML = ('le dé afficherais un 1');
-
-                break;
-
-            case 1:
-
-                document.getElementById("pote").innerHTML = ('le dé afficherais un 2');
-                break;
-            case 2:
-
-                document.getElementById("pote").innerHTML = ('le dé afficherais un 3');
-                break;
-            case 3:
-                document.getElementById("pote").innerHTML = ('le dé afficherais un 4');
-                break;
-            case 4:
-
-                document.getElementById("pote").innerHTML = ('le dé afficherais un 5');
-                break;
-            case 5:
-
-                document.getElementById("pote ").innerHTML = ('le dé afficherais un 6');
-                break;
-        }
-        document.getElementById("pate").innerHTML = de;
-    </script>
 </body>
 
 </html>

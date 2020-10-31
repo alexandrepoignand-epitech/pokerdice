@@ -1,51 +1,47 @@
-var min = 1;
-var max = 6;
-var turns = 3;
 
-$('.cube').click(function () {
-    if ($(this).hasClass('held')) {
-        $(this).removeClass('held');
-    } else {
-        $(this).addClass('held');
-    }
-});
+function rollDice() {
 
-$('#roll').click(function () {
-    var cubes = $('.cube:not(.held)');
-    cubes.each(function () {
-        roll($(this));
-    });
-    turns--;
-
-    $('#turns').text(turns);
-
-    if (turns === 0) {
-        $(this).unbind('click');
-        $(this).attr('disabled', 'disabled');
-    }
-});
-
-function roll(dice) {
-    var rand = getRandom(max, min);
-    var spins = getRandom(max, min);
-
-    // console.log("Number: " + rand);
-    // console.log("Spins: " + spins);
-
-    rand--;
-    spins--;
-
-    // console.log(positions[rand]);
-
-    // console.log(positions[rand][spins].x+', '+positions[rand][spins].y);
-
-    var xPos = positions[rand][spins].x + 1800;
-    var yPos = positions[rand][spins].y + 1800;
-
-    dice.css('transform', 'rotateX(' + xPos + 'deg) rotateY(' + yPos + 'deg)');
-    dice.css('-webkit-transform', 'rotateX(' + xPos + 'deg) rotateY(' + yPos + 'deg)');
+    const de1 = rollDie();
+    document.getElementById("de1").innerHTML = "le dé 1 affiche " + de1;
+    const de2 = rollDie();
+    document.getElementById("de2").innerHTML = "le dé 2 affiche " + de2;
+    const de3 = rollDie();
+    document.getElementById("de3").innerHTML = "le dé 3 affiche " + de3;
+    const de4 = rollDie();
+    document.getElementById("de4").innerHTML = "le dé 4 affiche " + de4;
+    const de5 = rollDie();
+    document.getElementById("de5").innerHTML = "le dé 5 affiche " + de5;
+    document.getElementById("reroll").disabled = false;
+    document.getElementById("roll").disabled = true;
+    $(':hidden').attr('disabled', 'disabled').css('display', 'none');
 }
+var nbretour = 1;
+function rerollDice() {
 
-function getRandom(max, min) {
-    return Math.floor(Math.random() * (max - min)) + min;
+    const de1 = rollDie();
+    document.getElementById("de1").innerHTML = "le dé 1 affiche " + de1;
+    const de2 = rollDie();
+    document.getElementById("de2").innerHTML = "le dé 2 affiche " + de2;
+    const de3 = rollDie();
+    document.getElementById("de3").innerHTML = "le dé 3 affiche " + de3;
+    const de4 = rollDie();
+    document.getElementById("de4").innerHTML = "le dé 4 affiche " + de4;
+    const de5 = rollDie();
+    document.getElementById("de5").innerHTML = "le dé 5 affiche " + de5;
+
+    if (nbretour < 2) {
+        nbretour = nbretour + 1;
+    }
+    else {
+        document.getElementById("reroll").disabled = true;
+        document.getElementById("fin").innerHTML = "fin de la partie"
+    
+    }
+}
+document.getElementById("de5").innerHTML = nbretour;
+
+
+
+function rollDie() {
+    return Math.floor(Math.random() * Math.floor(6) + 1);
 }
