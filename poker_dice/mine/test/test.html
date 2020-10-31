@@ -15,6 +15,11 @@
 <body onload="rollDice()">
 
     <div id="main" class="container">
+        <div>
+            Game of Poker-dice.</br>
+            Rolls left : <span id="turnsLeft">0</span>.<br>
+            <span id="information"></span>
+        </div>
         <ul>
             <li>
                 <input type="checkbox" class="checkbox" id="die1Check">
@@ -36,8 +41,9 @@
                 <input type="checkbox" class="checkbox" id="die5Check">
                 <label>Die 5: <span id="die5"></span></label>
             </li>
-
         </ul>
+        <button id="end" onclick="endOfTheGame()" class="btn btn-primary">End!</button>
+
         <button id="roll" onclick="rollDice()" class="btn btn-primary">Roll!</button>
     </div>
 
