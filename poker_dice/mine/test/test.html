@@ -12,36 +12,35 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body>
+<body onload="rollDice()">
+
     <div id="main" class="container">
-        <label>
-            <input type="checkbox" name="de1" class="checkbox">
-            <p id="de1"></p>
+        <ul>
+            <li>
+                <input type="checkbox" class="checkbox" id="die1Check">
+                <label>Die 1: <span id="die1"></span></label>
+            </li>
+            <li>
+                <input type="checkbox" class="checkbox" id="die2Check">
+                <label>Die 2: <span id="die2"></span></label>
+            </li>
+            <li>
+                <input type="checkbox" class="checkbox" id="die3Check">
+                <label>Die 3: <span id="die3"></span></label>
+            </li>
+            <li>
+                <input type="checkbox" class="checkbox" id="die4Check">
+                <label>Die 4: <span id="die4"></span></label>
+            </li>
+            <li>
+                <input type="checkbox" class="checkbox" id="die5Check">
+                <label>Die 5: <span id="die5"></span></label>
+            </li>
 
-        </label>
-        <label>
-            <input type="checkbox" name="de1" class="checkbox">
-            <p id="de2"></p>
-
-        </label>
-        <label >
-            <input type="checkbox" name="de1" class="checkbox">
-            <p id="de3"></p>
-
-        </label>
-        <label>
-            <input type="checkbox" name="de1" class="checkbox">
-            <p id="de4"></p>
-        </label>
-        <label>
-            <input type="checkbox" name="de1" class="checkbox">
-            <p id="de5"></p>
-        </label>
-        <p id="fin"></p>
-
+        </ul>
         <button id="roll" onclick="rollDice()" class="btn btn-primary">Roll!</button>
-        <button id="reroll" onclick="rerollDice()" class="btn btn-primary">Re Roll!</button>
     </div>
+
 </body>
 
 </html>
