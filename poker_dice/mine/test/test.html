@@ -12,11 +12,11 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body onload="startNewGame()">
+<body onload="initGame();">
 
     <div id="main" class="container">
         <div>
-            <button id="resetButton" onclick="startNewGame()" class="btn btn-primary">New Game!</button><br>
+            <button id="resetButton" onclick="startNewGame();" class="btn btn-primary">New Game!</button><br>
             Game of Poker-dice.</br>
             Rolls left : <span id="turnsLeft">0</span>.<br>
             <span id="information" style="visibility: hidden;">The game is over</span>
@@ -46,8 +46,8 @@
         <div>
             <span id="test"></span>
         </div>
-        <button id="rollButton" onclick="rollDice()" class="btn btn-primary">Roll!</button>
-        <button id="endButton" onclick="endGame()" class="btn btn-primary">End Game!</button>
+        <button id="rollButton" onclick="rollDice();" class="btn btn-primary">Roll!</button>
+        <button id="endButton" onclick="endGame();" class="btn btn-primary">End Game!</button>
     </div>
 
 </body>

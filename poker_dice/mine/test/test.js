@@ -1,6 +1,10 @@
+function initGame(){
 let turnsLeft;
 const rollButton = document.getElementById("rollButton");
 const informationSpan = document.getElementById("information");
+startNewGame()
+}
+
 function rollDice() {
 
     for (let dieNumber = 1; dieNumber <= 5; dieNumber++) {
