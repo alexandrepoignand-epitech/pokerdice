@@ -1,5 +1,5 @@
-
-let turnLeft = 3;
+let turnsLeft;
+document.getElementById("rollButton").disabled = false;
 function rollDice() {
 
     for (let dieNumber = 1; dieNumber <= 5; dieNumber++) {
@@ -9,46 +9,35 @@ function rollDice() {
             document.getElementById("die" + dieNumber).innerHTML = dieValue;
         }
     }
-    turnLeft--;
-    document.getElementById("turnsLeft").innerHTML = turnLeft;
-
-    if (turnLeft == 0) {
-        endOfTheGame();
+    turnsLeft--;
+    document.getElementById("turnsLeft").innerHTML = turnsLeft;
+    if (turnsLeft == 0) {
+        endGame();
     }
 }
-function reset() {
+
+function startNewGame() {
     for (let dieNumber = 1; dieNumber <= 5; dieNumber++) {
         document.getElementById("die" + dieNumber + "Check").checked = false;
-        const dieValue = rollDie();
-        document.getElementById("die" + dieNumber).innerHTML = dieValue;
     }
-    turnLeft = 3;
-    document.getElementById("turnsLeft").innerHTML = turnLeft;
-    document.getElementById("roll").disabled = false;
-
-
+    turnsLeft = 3;
+    document.getElementById("rollButton").disabled = false;
+    document.getElementById('information').style.visibility = "hidden";
+    rollDice();
 }
 
 function rollDie() {
     return Math.floor(Math.random() * Math.floor(6) + 1);
 }
-/*
-function numberOfTurn() {
 
-    for (turnleft = 3; turnLeft >= 0; turnLeft--) {
-        document.getElementById("turnLeft").innerHTML = "there is " + turnLeft + " ."
-    }
-
-    */
-function endOfTheGame() {
-    document.getElementById("roll").disabled = true;
-    document.getElementById("information").innerHTML = "The game is over";
-    turnLeft = 0;
-    document.getElementById("turnsLeft").innerHTML = turnLeft;
-
+function endGame() {
+    document.getElementById("rollButton").disabled = true;
+    turnsLeft = 0;
+    document.getElementById("turnsLeft").innerHTML = turnsLeft;
+    document.getElementById('information').style.visibility = "visible";
+    const die1Value = document.getElementById('die1').innerHTML;
+    const die2Value = document.getElementById('die2').innerHTML;
+    const die3Value = document.getElementById('die3').innerHTML;
+    const die4Value = document.getElementById('die4').innerHTML;
+    const die5Value = document.getElementById('die5').innerHTML;
 }
-/*
-    if (turnLeft == 0) {
-        document.getElementById("roll").disabled = true;
-    }
-}*/
