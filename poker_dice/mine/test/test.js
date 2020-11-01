@@ -12,6 +12,7 @@ let check2Input;
 let check3Input;
 let check4Input;
 let check5Input;
+let scoreSpan;
 
 
 
@@ -29,6 +30,8 @@ function initGame() {
     check3Input = document.getElementById('die3Check')
     check4Input = document.getElementById('die4Check')
     check5Input = document.getElementById('die5Check')
+    scoreSpan = document.getElementById('score')
+
 
 
     startNewGame();
@@ -55,6 +58,7 @@ function startNewGame() {
     turnsLeft = 3;
     rollButton.disabled = false;
     informationSpan.style.visibility = "hidden";
+    document.getElementById('scoreShower').style.visibility = "hidden"
     rollDice();
 }
 
@@ -67,9 +71,13 @@ function endGame() {
     turnsLeft = 0;
     turnsLeftSpan.innerHTML = turnsLeft;
     informationSpan.style.visibility = "visible";
-    const die1Value = document.getElementById('die1').innerHTML;
-    const die2Value = document.getElementById('die2').innerHTML;
-    const die3Value = document.getElementById('die3').innerHTML;
-    const die4Value = document.getElementById('die4').innerHTML;
-    const die5Value = document.getElementById('die5').innerHTML;
+    document.getElementById('scoreShower').style.visibility = "visible"
+    const die1Value = die1Span.innerHTML;
+    const die2Value = die2Span.innerHTML;
+    const die3Value = die3Span.innerHTML;
+    const die4Value = die4Span.innerHTML;
+    const die5Value = die5Span.innerHTML;
+    summDice = parseInt(die1Value) + parseInt(die2Value) + parseInt(die3Value) + parseInt(die4Value) + parseInt(die5Value);
+    scoreSpan.innerHTML = summDice;
+    
 }
