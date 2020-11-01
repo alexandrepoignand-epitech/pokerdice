@@ -1,5 +1,6 @@
 let turnsLeft;
-document.getElementById("rollButton").disabled = false;
+const rollButton = document.getElementById("rollButton");
+const informationSpan = document.getElementById("information");
 function rollDice() {
 
     for (let dieNumber = 1; dieNumber <= 5; dieNumber++) {
@@ -21,8 +22,8 @@ function startNewGame() {
         document.getElementById("die" + dieNumber + "Check").checked = false;
     }
     turnsLeft = 3;
-    document.getElementById("rollButton").disabled = false;
-    document.getElementById('information').style.visibility = "hidden";
+    rollButton.disabled = false;
+    informationSpan.style.visibility = "hidden";
     rollDice();
 }
 
@@ -31,10 +32,10 @@ function rollDie() {
 }
 
 function endGame() {
-    document.getElementById("rollButton").disabled = true;
+    rollButton.disabled = true;
     turnsLeft = 0;
     document.getElementById("turnsLeft").innerHTML = turnsLeft;
-    document.getElementById('information').style.visibility = "visible";
+    informationSpan.style.visibility = "visible";
     const die1Value = document.getElementById('die1').innerHTML;
     const die2Value = document.getElementById('die2').innerHTML;
     const die3Value = document.getElementById('die3').innerHTML;
