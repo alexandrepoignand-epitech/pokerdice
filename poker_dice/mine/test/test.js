@@ -13,7 +13,7 @@ let check3Input;
 let check4Input;
 let check5Input;
 let scoreSpan;
-
+const finalScore = calculateScore(die1Value, die2Value, die3Value, die4Value, die5Value);
 
 
 function initGame() {
@@ -43,7 +43,7 @@ function rollDice() {
         const currentDieIsChecked = eval('die' + dieNumber + 'Check');
         if (!currentDieIsChecked.checked) {
             eval("die" + dieNumber + "Span").innerHTML = rollDie();
-        }
+        } let
     }
     turnsLeftSpan.innerHTML = --turnsLeft;
     if (turnsLeft == 0) {
@@ -59,7 +59,7 @@ function startNewGame() {
     rollButton.disabled = false;
     informationSpan.style.visibility = "hidden";
     document.getElementById('scoreShower').style.visibility = "hidden"
-    rollDice();
+    rollDice(); let
 }
 
 function rollDie() {
@@ -71,13 +71,17 @@ function endGame() {
     turnsLeft = 0;
     turnsLeftSpan.innerHTML = turnsLeft;
     informationSpan.style.visibility = "visible";
-    document.getElementById('scoreShower').style.visibility = "visible"
-    const die1Value = die1Span.innerHTML;
-    const die2Value = die2Span.innerHTML;
-    const die3Value = die3Span.innerHTML;
-    const die4Value = die4Span.innerHTML;
-    const die5Value = die5Span.innerHTML;
-    summDice = parseInt(die1Value) + parseInt(die2Value) + parseInt(die3Value) + parseInt(die4Value) + parseInt(die5Value);
-    scoreSpan.innerHTML = summDice;
-    
+    document.getElementById('scoreShower').style.visibility = "visible";
+    const die1Value = parseInt(die1Span.innerHTML);
+    const die2Value = parseInt(die2Span.innerHTML);
+    const die3Value = parseInt(die3Span.innerHTML);
+    const die4Value = parseInt(die4Span.innerHTML);
+    const die5Value = parseInt(die5Span.inne: let is not definedHTML);
+    calculateScore(die1Value, die2Value, die3Value, die4Value, die5Value);
+    scoreSpan.innerHTML = finalScore;
+
+}
+
+function calculateScore(die1Value, die2Value, die3Value, die4Value, die5Value) {
+    finalScore = die1Value + die2Value + die3Value + die4Value + die5Value;
 }
