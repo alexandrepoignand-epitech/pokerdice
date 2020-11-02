@@ -578,11 +578,11 @@
                                 }
 
                                 if ($nbr1 == "5" || $nbr2 == "5" || $nbr3 == "5" || $nbr4 == "5" || $nbr5 == "5" || $nbr6 == "") {
-                                    echo "carrer";
+                                    echo "yamms";
                                 }
 
                                 if ($nbr1 == "4" || $nbr2 == "4" || $nbr3 == "4" || $nbr4 == "4" || $nbr5 == "4" || $nbr6 == "4") {
-                                    echo "carrer";
+                                    echo "carré";
                                 }
 
                                 if ($nbr1 == "3" || $nbr2 == "3" || $nbr3 == "3" || $nbr4 == "3" || $nbr5 == "3" || $nbr6 == "3") {
