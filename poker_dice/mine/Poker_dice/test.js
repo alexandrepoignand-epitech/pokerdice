@@ -74,7 +74,12 @@ function endGame() {
 
 function calculateScore(die1, die2, die3, die4, die5) {
     const finalResult = die1 + die2 + die3 + die4 + die5;
-
+    let numberOf1 = countOccurence(finalResult, 1)
+    let numberOf2 = countOccurence(finalResult, 2)
+    let numberOf3 = countOccurence(finalResult, 3)
+    let numberOf4 = countOccurence(finalResult, 4)
+    let numberOf5 = countOccurence(finalResult, 5)
+    let numberOf6 = countOccurence(finalResult, 6)
     console.log(finalResult)
     if (((numberOf1 == "2") && (numberOf2 == "2" ^ numberOf3 == "2" ^ numberOf4 == "2" ^ numberOf5 == "2" ^ numberOf6 == "2")) || ((numberOf2 == "2") && (numberOf1 == "2" ^ numberOf3 == "2" ^ numberOf4 == "2" ^ numberOf5 == "2" ^ numberOf6 == "2")) || ((numberOf3 == "2") && (numberOf1 == "2" ^ numberOf2 == "2" ^ numberOf4 == "2" ^ numberOf5 == "2" ^ numberOf6 == "2")) || ((numberOf4 == "2") && (numberOf1 == "2" ^ numberOf2 == "2" ^ numberOf3 == "2" ^ numberOf5 == "2" ^ numberOf6 == "2")) || ((numberOf5 == "2") && (numberOf1 == "2" ^ numberOf2 == "2" ^ numberOf3 == "2" ^ numberOf4 == "2" ^ numberOf6 == "2")) || ((numberOf6 == "2") && (numberOf1 == "2" ^ numberOf2 == "2" ^ numberOf3 == "2" ^ numberOf4 == "2" ^ numberOf5 == "2"))) {
         combinaisons.innerHTML = "double paire";
