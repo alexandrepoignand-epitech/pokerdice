@@ -2,11 +2,11 @@ let turnsLeft;
 let rollButton;
 let informationSpan;
 let turnsLeftSpan;
-let die1Span;
-let die3Span;
-let die2Span;
-let die4Span;
-let die5Span;
+let die1Image;
+let die3Image;
+let die2Image;
+let die4Image;
+let die5Image;
 let check1Input;
 let check2Input;
 let check3Input;
@@ -19,11 +19,11 @@ function initGame() {
     rollButton = document.getElementById("rollButton");
     informationSpan = document.getElementById("information");
     turnsLeftSpan = document.getElementById("turnsLeft");
-    die1Span = document.getElementById("die1");
-    die2Span = document.getElementById("die2");
-    die3Span = document.getElementById("die3");
-    die4Span = document.getElementById("die4");
-    die5Span = document.getElementById("die5");
+    die1Image = document.getElementById("die1");
+    die2Image = document.getElementById("die2");
+    die3Image = document.getElementById("die3");
+    die4Image = document.getElementById("die4");
+    die5Image = document.getElementById("die5");
     check1Input = document.getElementById('die1Check');
     check2Input = document.getElementById('die2Check');
     check3Input = document.getElementById('die3Check');
@@ -38,7 +38,7 @@ function rollDice() {
     for (let dieNumber = 1; dieNumber <= 5; dieNumber++) {
         const currentDieIsChecked = eval('die' + dieNumber + 'Check');
         if (!currentDieIsChecked.checked) {
-            eval("die" + dieNumber + "Span").innerHTML = rollDie();
+            eval("die" + dieNumber + "Image").src = "assets/" + rollDie() + ".jpg";
         }
     }
     turnsLeftSpan.innerHTML = --turnsLeft;
@@ -69,7 +69,9 @@ function endGame() {
     turnsLeftSpan.innerHTML = turnsLeft;
     informationSpan.style.visibility = "visible";
     document.getElementById('scoreShower').style.visibility = "visible";
-    const finalScore = calculateScore(die1Span.innerHTML, die2Span.innerHTML, die3Span.innerHTML, die4Span.innerHTML, die5Span.innerHTML);
+    const finalScore = calculateScore(die1Image.src.substr(75, 1), die2Image.src.substr(75, 1), die3Image.src.substr(75, 1), die4Image.src.substr(75, 1), die5Image.src.substr(75, 1));
+    scoreSpan.innerHTML = finalScore;
+    console.log(finalScore);
 }
 
 function calculateScore(die1, die2, die3, die4, die5) {
@@ -87,7 +89,6 @@ function calculateScore(die1, die2, die3, die4, die5) {
     } else if (numberOf1 == "2" ^ numberOf2 == "2" ^ numberOf3 == "2" ^ numberOf4 == "2" ^ numberOf5 == "2" ^ numberOf6 == "2") {
         combinaisons.innerHTML = "paire";
         finalScore = 10 + parseInt(die1) + parseInt(die2) + parseInt(die3) + parseInt(die4) + parseInt(die5);
-
     }
 
     if ((numberOf1 >= "1" && numberOf2 >= "1" && numberOf3 >= "1" && numberOf4 >= "1") || (numberOf2 >= "1" && numberOf3 >= "1" && numberOf4 >= "1" && numberOf5 >= "1") || (numberOf3 >= "1" && numberOf4 >= "1" && numberOf5 >= "1" && numberOf6 >= "1")) {
@@ -118,9 +119,9 @@ function calculateScore(die1, die2, die3, die4, die5) {
     if (numberOf1 == "5" ^ numberOf2 == "5" ^ numberOf3 == "5" ^ numberOf4 == "5" ^ numberOf5 == "5" ^ numberOf6 == "5") {
         combinaisons.innerHTML = "Poker";
         finalScore = 90 + parseInt(die1) + parseInt(die2) + parseInt(die3) + parseInt(die4) + parseInt(die5);
+
     }
-    scoreSpan.innerHTML = finalScore;
-    console.log(finalScore);
+    return finalScore;
 }
 function countOccurence(finalResult, nombre) {
     let count = 0;
