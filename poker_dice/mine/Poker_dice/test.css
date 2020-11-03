@@ -1,3 +1,9 @@
-li{
+li {
     list-style-type: none;
+}
+
+:checked+label img {
+    transform: scale(0.85);
+    border: 1px solid red !important;
+    border-radius: 16px;
 }
