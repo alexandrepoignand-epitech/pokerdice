@@ -70,11 +70,9 @@ function endGame() {
     informationSpan.style.visibility = "visible";
     document.getElementById('scoreShower').style.visibility = "visible";
     const finalScore = calculateScore(die1Span.innerHTML, die2Span.innerHTML, die3Span.innerHTML, die4Span.innerHTML, die5Span.innerHTML);
-    scoreSpan.innerHTML = finalScore;
 }
 
 function calculateScore(die1, die2, die3, die4, die5) {
-    console.log(die1 + die3)
     const finalResult = die1 + die2 + die3 + die4 + die5;
     let numberOf1 = countOccurence(finalResult, 1);
     console.log("il y a " + numberOf1 + " 1");
@@ -90,39 +88,46 @@ function calculateScore(die1, die2, die3, die4, die5) {
     console.log("il y a " + numberOf6 + " 6");
 
     console.log(finalResult)
-    if ((numberOf1 == "2" ^ numberOf2 == "2" ^ numberOf3 == "2" ^ numberOf4 == "2" ^ numberOf5 == "2" ^ numberOf6 == "2") && (numberOf1 == "2" ^ numberOf2 == "2" ^ numberOf3 == "2" ^ numberOf4 == "2" ^ numberOf5 == "2" ^ numberOf6 == "2")) {
+    if (((numberOf1 == "2") && (numberOf2 == "2" ^ numberOf3 == "2" ^ numberOf4 == "2" ^ numberOf5 == "2" ^ numberOf6 == "2")) || ((numberOf2 == "2") && (numberOf1 == "2" ^ numberOf3 == "2" ^ numberOf4 == "2" ^ numberOf5 == "2" ^ numberOf6 == "2")) || ((numberOf3 == "2") && (numberOf1 == "2" ^ numberOf2 == "2" ^ numberOf4 == "2" ^ numberOf5 == "2" ^ numberOf6 == "2")) || ((numberOf4 == "2") && (numberOf1 == "2" ^ numberOf2 == "2" ^ numberOf3 == "2" ^ numberOf5 == "2" ^ numberOf6 == "2")) || ((numberOf5 == "2") && (numberOf1 == "2" ^ numberOf2 == "2" ^ numberOf3 == "2" ^ numberOf4 == "2" ^ numberOf6 == "2")) || ((numberOf6 == "2") && (numberOf1 == "2" ^ numberOf2 == "2" ^ numberOf3 == "2" ^ numberOf4 == "2" ^ numberOf5 == "2"))) {
         combinaisons.innerHTML = "double paire";
+        finalScore = 20 + parseInt(die1) + parseInt(die2) + parseInt(die3) + parseInt(die4) + parseInt(die5);
     } else if (numberOf1 == "2" ^ numberOf2 == "2" ^ numberOf3 == "2" ^ numberOf4 == "2" ^ numberOf5 == "2" ^ numberOf6 == "2") {
         combinaisons.innerHTML = "paire";
-    }
-
-
-    if (numberOf1 == "3" ^ numberOf2 == "3" ^ numberOf3 == "3" ^ numberOf4 == "3" ^ numberOf5 == "3" ^ numberOf6 == "3") {
-        combinaisons.innerHTML = "Three of a kind";
-    }
-
-    //  if ((numberOf1 == "2" || numberOf2 == "2" || numberOf3 == "2" || numberOf4 == "2" || numberOf5 == "2" || numberOf6 == "2") && (numberOf1 == "3" || numberOf2 == "3" || numberOf3 == "3" || numberOf4 == "3" || numberOf5 == "3" || numberOf6 == "3")) {
-    //    combinaisons.innerHTML = "full house";
-    //}
-
-    if (numberOf1 == "4" ^ numberOf2 == "4" ^ numberOf3 == "4" ^ numberOf4 == "4" ^ numberOf5 == "4" ^ numberOf6 == "4") {
-        combinaisons.innerHTML = "Four of a kind";
-    }
-
-    if (numberOf1 == "5" ^ numberOf2 == "5" ^ numberOf3 == "5" ^ numberOf4 == "5" ^ numberOf5 == "5" ^ numberOf6 == "5") {
-        combinaisons.innerHTML = "Poker";
+        finalScore = 10 + parseInt(die1) + parseInt(die2) + parseInt(die3) + parseInt(die4) + parseInt(die5);
 
     }
 
     if ((numberOf1 >= "1" && numberOf2 >= "1" && numberOf3 >= "1" && numberOf4 >= "1") || (numberOf2 >= "1" && numberOf3 >= "1" && numberOf4 >= "1" && numberOf5 >= "1") || (numberOf3 >= "1" && numberOf4 >= "1" && numberOf5 >= "1" && numberOf6 >= "1")) {
         combinaisons.innerHTML = "little flush :)";
+        finalScore = 30 + parseInt(die1) + parseInt(die2) + parseInt(die3) + parseInt(die4) + parseInt(die5);
+    }
 
+    if (numberOf1 == "3" ^ numberOf2 == "3" ^ numberOf3 == "3" ^ numberOf4 == "3" ^ numberOf5 == "3" ^ numberOf6 == "3") {
+        combinaisons.innerHTML = "Three of a kind";
+        finalScore = 40 + parseInt(die1) + parseInt(die2) + parseInt(die3) + parseInt(die4) + parseInt(die5);
     }
 
     if ((numberOf1 == "1" && numberOf2 == "1" && numberOf3 == "1" && numberOf4 == "1" && numberOf5 == "1" || numberOf2 == "1" && numberOf3 == "1" && numberOf4 == "1" && numberOf5 == "1" && numberOf6 == "1")) {
         combinaisons.innerHTML = "flush";
+        finalScore = 50 + parseInt(die1) + parseInt(die2) + parseInt(die3) + parseInt(die4) + parseInt(die5);
     }
-    // return parseInt(die1) + parseInt(die2) + parseInt(die3) + parseInt(die4) + parseInt(die5);
+
+    if ((numberOf1 == "2" || numberOf2 == "2" || numberOf3 == "2" || numberOf4 == "2" || numberOf5 == "2" || numberOf6 == "2") && (numberOf1 == "3" || numberOf2 == "3" || numberOf3 == "3" || numberOf4 == "3" || numberOf5 == "3" || numberOf6 == "3")) {
+        combinaisons.innerHTML = "full house";
+        finalScore = 60 + parseInt(die1) + parseInt(die2) + parseInt(die3) + parseInt(die4) + parseInt(die5);
+    }
+
+    if (numberOf1 == "4" ^ numberOf2 == "4" ^ numberOf3 == "4" ^ numberOf4 == "4" ^ numberOf5 == "4" ^ numberOf6 == "4") {
+        combinaisons.innerHTML = "Four of a kind";
+        finalScore = 70 + parseInt(die1) + parseInt(die2) + parseInt(die3) + parseInt(die4) + parseInt(die5);
+    }
+
+    if (numberOf1 == "5" ^ numberOf2 == "5" ^ numberOf3 == "5" ^ numberOf4 == "5" ^ numberOf5 == "5" ^ numberOf6 == "5") {
+        combinaisons.innerHTML = "Poker";
+        finalScore = 90 + parseInt(die1) + parseInt(die2) + parseInt(die3) + parseInt(die4) + parseInt(die5);
+    }
+    scoreSpan.innerHTML = finalScore;
+    console.log(finalScore);
 }
 function countOccurence(finalResult, nombre) {
     let count = 0;
