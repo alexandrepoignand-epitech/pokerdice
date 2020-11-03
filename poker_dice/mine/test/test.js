@@ -13,6 +13,7 @@ let check3Input;
 let check4Input;
 let check5Input;
 let scoreSpan;
+let combinaisons
 
 function initGame() {
     rollButton = document.getElementById("rollButton");
@@ -29,6 +30,7 @@ function initGame() {
     check4Input = document.getElementById('die4Check');
     check5Input = document.getElementById('die5Check');
     scoreSpan = document.getElementById('score');
+    combinaisons = document.getElementById('combinaisons')
     startNewGame();
 }
 
@@ -74,23 +76,54 @@ function endGame() {
 function calculateScore(die1, die2, die3, die4, die5) {
     console.log(die1 + die3)
     const finalResult = die1 + die2 + die3 + die4 + die5;
-    let numberOf1 = countOccurence(finalResult, 1)
-    console.log("il y a "+numberOf1+" 1")
-    let numberOf2 = countOccurence(finalResult, 2)
-    console.log("il y a "+numberOf2+" 2")
-    let numberOf3 = countOccurence(finalResult, 3)
-    console.log("il y a "+numberOf3+" 3")
-    let numberOf4 = countOccurence(finalResult, 4)
-    console.log("il y a "+numberOf4+" 4")
-    let numberOf5 = countOccurence(finalResult, 5)
-    console.log("il y a "+numberOf5+" 5")
-    let numberOf6 = countOccurence(finalResult, 6)
-    console.log("il y a "+numberOf6+" 6")
-    
-    console.log(finalResult)
-   // return parseInt(die1) + parseInt(die2) + parseInt(die3) + parseInt(die4) + parseInt(die5);
-}
+    let numberOf1 = countOccurence(finalResult, 1);
+    console.log("il y a " + numberOf1 + " 1");
+    let numberOf2 = countOccurence(finalResult, 2);
+    console.log("il y a " + numberOf2 + " 2");
+    let numberOf3 = countOccurence(finalResult, 3);
+    console.log("il y a " + numberOf3 + " 3");
+    let numberOf4 = countOccurence(finalResult, 4);
+    console.log("il y a " + numberOf4 + " 4");
+    let numberOf5 = countOccurence(finalResult, 5);
+    console.log("il y a " + numberOf5 + " 5");
+    let numberOf6 = countOccurence(finalResult, 6);
+    console.log("il y a " + numberOf6 + " 6");
 
+    console.log(finalResult)
+    if ((numberOf1 == "2" ^ numberOf2 == "2" ^ numberOf3 == "2" ^ numberOf4 == "2" ^ numberOf5 == "2" ^ numberOf6 == "2") && (numberOf1 == "2" ^ numberOf2 == "2" ^ numberOf3 == "2" ^ numberOf4 == "2" ^ numberOf5 == "2" ^ numberOf6 == "2")) {
+        combinaisons.innerHTML = "double paire";
+    } else if (numberOf1 == "2" ^ numberOf2 == "2" ^ numberOf3 == "2" ^ numberOf4 == "2" ^ numberOf5 == "2" ^ numberOf6 == "2") {
+        combinaisons.innerHTML = "paire";
+    }
+
+
+    if (numberOf1 == "3" ^ numberOf2 == "3" ^ numberOf3 == "3" ^ numberOf4 == "3" ^ numberOf5 == "3" ^ numberOf6 == "3") {
+        combinaisons.innerHTML = "Three of a kind";
+    }
+
+    //  if ((numberOf1 == "2" || numberOf2 == "2" || numberOf3 == "2" || numberOf4 == "2" || numberOf5 == "2" || numberOf6 == "2") && (numberOf1 == "3" || numberOf2 == "3" || numberOf3 == "3" || numberOf4 == "3" || numberOf5 == "3" || numberOf6 == "3")) {
+    //    combinaisons.innerHTML = "full house";
+    //}
+
+    if (numberOf1 == "4" ^ numberOf2 == "4" ^ numberOf3 == "4" ^ numberOf4 == "4" ^ numberOf5 == "4" ^ numberOf6 == "4") {
+        combinaisons.innerHTML = "Four of a kind";
+    }
+
+    if (numberOf1 == "5" ^ numberOf2 == "5" ^ numberOf3 == "5" ^ numberOf4 == "5" ^ numberOf5 == "5" ^ numberOf6 == "5") {
+        combinaisons.innerHTML = "Poker";
+
+    }
+
+    if ((numberOf1 >= "1" && numberOf2 >= "1" && numberOf3 >= "1" && numberOf4 >= "1") || (numberOf2 >= "1" && numberOf3 >= "1" && numberOf4 >= "1" && numberOf5 >= "1") || (numberOf3 >= "1" && numberOf4 >= "1" && numberOf5 >= "1" && numberOf6 >= "1")) {
+        combinaisons.innerHTML = "little flush :)";
+
+    }
+
+    if ((numberOf1 == "1" && numberOf2 == "1" && numberOf3 == "1" && numberOf4 == "1" && numberOf5 == "1" || numberOf2 == "1" && numberOf3 == "1" && numberOf4 == "1" && numberOf5 == "1" && numberOf6 == "1")) {
+        combinaisons.innerHTML = "flush";
+    }
+    // return parseInt(die1) + parseInt(die2) + parseInt(die3) + parseInt(die4) + parseInt(die5);
+}
 function countOccurence(finalResult, nombre) {
     let count = 0;
 
@@ -102,5 +135,5 @@ function countOccurence(finalResult, nombre) {
             count += 1;
         }
     }
-    console.log(count);
+    return count;
 }

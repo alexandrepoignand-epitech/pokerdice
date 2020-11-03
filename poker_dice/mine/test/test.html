@@ -19,6 +19,7 @@
             <button id="resetButton" onclick="startNewGame();" class="btn btn-primary">New Game!</button><br>
             Game of Poker-dice.</br>
             Rolls left : <span id="turnsLeft">0</span>.<br>
+            <span id="playerInfo"></span>
             <span id="information" style="visibility: hidden;">The game is over</span>
         </div>
         <ul>
@@ -44,10 +45,12 @@
             </li>
         </ul>
         <div id="scoreShower">
-            Your final score: <span id="score"></span>
+            Your final score: <span id="score"></span> <br>
+            Thanks to : <span id="combinaisons"></span>
         </div>
         <button id="rollButton" onclick="rollDice();" class="btn btn-primary">Roll!</button>
         <button id="endButton" onclick="endGame();" class="btn btn-primary">End Game!</button>
+        <button id="player2Button" onclick="player2();" class ="btn btn-primary">Player 2 Turn!</button>
     </div>
 
 </body>

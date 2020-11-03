@@ -9,6 +9,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
+
     <body>
         <h2 id="heading"> We're gonna roll a dice! <br><small>And you have to guess which number the dice will roll.</small></h2>
         <form action="" method="post">
@@ -573,7 +574,7 @@
                                 if (($nbr1 == "2" xor $nbr2 == "2" xor $nbr3 == "2" xor $nbr4 == "2" xor $nbr5 == "2" xor $nbr6 == "2") && ($nbr1 == "2" xor $nbr2 == "2" xor $nbr3 == "2" xor $nbr4 == "2" xor $nbr5 == "2" xor $nbr6 == "2")) {
                                     if ($full == "1") {
                                     } else
-                                        echo "paire";
+                                        echo "doublepaire";
                                     $double = 1;
                                 }
 
@@ -593,7 +594,7 @@
                                 if ($nbr1 == "2" || $nbr2 == "2" || $nbr3 == "2" || $nbr4 == "2" || $nbr5 == "2" || $nbr6 == "2") {
                                     if ($double == "1") {
                                     } else
-                                        echo "double paire";
+                                        echo "paire";
                                 }
 
                                 if ($nbr1 == "1" && $nbr2 == "1" && $nbr3 == "1" && $nbr4 == "1" && $nbr5 == "1" || $nbr2 == "1" && $nbr3 == "1" && $nbr4 == "1" && $nbr5 == "1" && $nbr6 == "1") {
