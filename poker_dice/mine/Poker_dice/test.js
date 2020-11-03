@@ -69,12 +69,12 @@ function endGame() {
     turnsLeftSpan.innerHTML = turnsLeft;
     informationSpan.style.visibility = "visible";
     document.getElementById('scoreShower').style.visibility = "visible";
-    const finalScore = calculateScore(die1Image.src.substr(75, 1), die2Image.src.substr(75, 1), die3Image.src.substr(75, 1), die4Image.src.substr(75, 1), die5Image.src.substr(75, 1));
+    const finalScore = calculateScore(die1Image.src.substring(die1Image.src.length-5, die1Image.src.length-4), die2Image.src.substring(die2Image.src.length-5, die2Image.src.length-4), die3Image.src.substring(die3Image.src.length-5, die3Image.src.length-4), die4Image.src.substring(die4Image.src.length-5, die4Image.src.length-4), die5Image.src.substring(die5Image.src.length-5, die5Image.src.length-4));
     scoreSpan.innerHTML = finalScore;
     console.log(finalScore);
 }
 
-function calculateScore(die1, die2, die3, die4, die5) {
+function calculateScore(die1    , die2, die3, die4, die5) {
     const finalResult = die1 + die2 + die3 + die4 + die5;
     let numberOf1 = countOccurence(finalResult, 1);
     let numberOf2 = countOccurence(finalResult, 2);
